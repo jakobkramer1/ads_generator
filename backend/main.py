@@ -7,6 +7,7 @@ from pydantic import BaseModel
 
 from backend.config import get_settings
 from backend.services.video_generator import VideoGenerator
+from backend.services.image_generator import ImageGenerator
 
 
 app = FastAPI(
@@ -28,16 +29,19 @@ app.add_middleware(
 settings = get_settings()
 settings.images_dir.mkdir(exist_ok=True)
 settings.output_dir.mkdir(exist_ok=True)
+settings.generated_images_dir.mkdir(exist_ok=True)
 
 # Serve generated videos and images
 app.mount("/videos", StaticFiles(directory=str(settings.output_dir)), name="videos")
 app.mount("/images", StaticFiles(directory=str(settings.images_dir)), name="images")
+app.mount("/generated-images", StaticFiles(directory=str(settings.generated_images_dir)), name="generated-images")
 
 
 class VideoGenerationResponse(BaseModel):
     job_id: str
     status: str
     video_url: str | None = None
+    image_url: str | None = None
     error: str | None = None
 
 
@@ -48,6 +52,11 @@ jobs: dict[str, dict] = {}
 def _get_video_generator() -> VideoGenerator:
     """Get configured video generator instance."""
     return VideoGenerator(api_key=settings.google_ai_api_key)
+
+
+def _get_image_generator() -> ImageGenerator:
+    """Get configured image generator instance."""
+    return ImageGenerator(api_key=settings.google_ai_api_key)
 
 
 def generate_video_task(
@@ -73,6 +82,30 @@ def generate_video_task(
         )
         jobs[job_id]["status"] = "completed"
         jobs[job_id]["video_url"] = f"/videos/{Path(output_path).name}"
+    except Exception as e:
+        jobs[job_id]["status"] = "failed"
+        jobs[job_id]["error"] = str(e)
+
+
+def generate_image_task(
+    job_id: str,
+    prompt: str,
+    image_path: str,
+    output_path: str,
+    aspect_ratio: str,
+):
+    """Background task for image generation."""
+    try:
+        jobs[job_id]["status"] = "processing"
+        generator = _get_image_generator()
+        generator.generate_image_from_reference(
+            prompt=prompt,
+            reference_image_path=image_path,
+            output_path=output_path,
+            aspect_ratio=aspect_ratio,
+        )
+        jobs[job_id]["status"] = "completed"
+        jobs[job_id]["image_url"] = f"/generated-images/{Path(output_path).name}"
     except Exception as e:
         jobs[job_id]["status"] = "failed"
         jobs[job_id]["error"] = str(e)
@@ -125,7 +158,7 @@ async def generate_video(
         f.write(content)
     
     # Initialize job
-    jobs[job_id] = {"status": "queued", "video_url": None, "error": None}
+    jobs[job_id] = {"status": "queued", "video_url": None, "image_url": None, "error": None}
     
     # Start background generation
     background_tasks.add_task(
@@ -142,9 +175,57 @@ async def generate_video(
     return VideoGenerationResponse(job_id=job_id, status="queued")
 
 
+@app.post("/api/generate-image", response_model=VideoGenerationResponse)
+async def generate_image(
+    background_tasks: BackgroundTasks,
+    image: UploadFile = File(...),
+    prompt: str = Form(...),
+    format: str = Form("16:9"),
+):
+    """
+    Generate an image from an uploaded reference image and prompt.
+    
+    The image generation runs in the background.
+    Use the returned job_id to check the status.
+    
+    Args:
+        image: The input reference image file
+        prompt: Text description for the generated image
+        format: Aspect ratio - "1:1", "16:9", or "9:16" (default: "16:9")
+    """
+    # Validate format
+    if format not in ["1:1", "16:9", "9:16"]:
+        raise HTTPException(status_code=400, detail="Format must be '1:1', '16:9', or '9:16'")
+    
+    # Save uploaded image to images folder
+    job_id = str(uuid.uuid4())
+    image_ext = Path(image.filename or "image.jpg").suffix or ".jpg"
+    image_path = settings.images_dir / f"{job_id}{image_ext}"
+    output_path = settings.generated_images_dir / f"{job_id}.png"
+    
+    content = await image.read()
+    with open(image_path, "wb") as f:
+        f.write(content)
+    
+    # Initialize job
+    jobs[job_id] = {"status": "queued", "video_url": None, "image_url": None, "error": None}
+    
+    # Start background generation
+    background_tasks.add_task(
+        generate_image_task,
+        job_id=job_id,
+        prompt=prompt,
+        image_path=str(image_path),
+        output_path=str(output_path),
+        aspect_ratio=format,
+    )
+    
+    return VideoGenerationResponse(job_id=job_id, status="queued")
+
+
 @app.get("/api/jobs/{job_id}", response_model=VideoGenerationResponse)
 async def get_job_status(job_id: str):
-    """Get the status of a video generation job."""
+    """Get the status of a video or image generation job."""
     if job_id not in jobs:
         raise HTTPException(status_code=404, detail="Job not found")
     
@@ -153,5 +234,6 @@ async def get_job_status(job_id: str):
         job_id=job_id,
         status=job["status"],
         video_url=job.get("video_url"),
+        image_url=job.get("image_url"),
         error=job.get("error"),
     )
