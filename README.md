@@ -10,14 +10,16 @@ ads_gen/
 │   ├── main.py                # API endpoints
 │   ├── config.py              # Configuration & settings
 │   └── services/
-│       └── video_generator.py # Video generation logic
+│       ├── video_generator.py # Video generation (Veo 3.1)
+│       └── image_generator.py # Image generation (Gemini 2.5 Flash)
 ├── frontend/                   # Next.js Frontend
 │   └── src/
 │       ├── app/               # Next.js app router
 │       └── components/        # React components
 │           └── video-generator.tsx
-├── images/                     # Input images
-└── videos/                     # Generated videos
+├── images/                     # Uploaded input images
+├── generated-images/           # AI-generated images
+└── videos/                     # AI-generated videos
 ```
 
 ## Setup
@@ -64,10 +66,12 @@ The frontend will be available at `http://localhost:3000`
 ## Features
 
 - **Image Upload**: Drag & drop or click to upload an image
-- **Prompt Input**: Describe the video you want to create
-- **Format Selection**: Choose between 16:9 (landscape) or 9:16 (portrait)
-- **Quality Selection**: Choose between 1080p (Full HD) or 720p (HD)
-- **Video Generation**: Generate AI-powered advertisement videos
+- **Prompt Input**: Describe the video or image you want to create
+- **Format Selection**: Choose between 1:1 (square), 16:9 (landscape), or 9:16 (portrait)
+- **Quality Selection**: Choose between 1080p (Full HD) or 720p (HD) for videos
+- **Duration Selection**: Choose video duration (4s, 6s, or 8s)
+- **Video Generation**: Generate AI-powered advertisement videos using Veo 3.1
+- **Image Generation**: Generate professional ad images using Gemini 2.5 Flash
 
 ## API Endpoints
 
@@ -75,8 +79,10 @@ The frontend will be available at `http://localhost:3000`
 |--------|----------|-------------|
 | GET | `/` | Health check |
 | POST | `/api/generate` | Generate video from uploaded image |
+| POST | `/api/generate-image` | Generate image from reference image |
 | GET | `/api/jobs/{job_id}` | Check job status |
 | GET | `/videos/{filename}` | Serve generated videos |
+| GET | `/generated-images/{filename}` | Serve generated images |
 
 ### Generate Video Example
 
@@ -88,4 +94,12 @@ curl -X POST http://localhost:8000/api/generate \
   -F "resolution=1080p" \
   -F "format=16:9"
 ```
-# ads_generator
+
+### Generate Image Example
+
+```bash
+curl -X POST http://localhost:8000/api/generate-image \
+  -F "image=@images/product.jpg" \
+  -F "prompt=Product on marble surface with soft natural light" \
+  -F "format=1:1"
+```

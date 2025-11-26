@@ -12,6 +12,7 @@ class Settings(BaseSettings):
     images_dir: Path = Path("images")
     output_dir: Path = Path("videos")
     generated_images_dir: Path = Path("generated-images")
+    prompts_dir: Path = Path("prompts")
     
     class Config:
         env_file = ".env"

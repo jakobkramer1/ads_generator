@@ -12,6 +12,10 @@ dependencies = [
     "uvicorn[standard]>=0.32.0",
     "pydantic-settings>=2.6.0",
     "python-multipart>=0.0.12",
+    "langchain-google-genai>=2.0.0",
+    "langchain-core>=0.3.0",
+    "rembg>=2.0.0",
+    "onnxruntime>=1.23.2",
 ]
 
 [project.scripts]

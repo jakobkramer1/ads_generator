@@ -8,6 +8,8 @@ from pydantic import BaseModel
 from backend.config import get_settings
 from backend.services.video_generator import VideoGenerator
 from backend.services.image_generator import ImageGenerator
+from backend.services.image_processor import ImageProcessor
+from backend.agents.prompt_refiner import PromptRefinerAgent
 
 
 app = FastAPI(
@@ -30,6 +32,7 @@ settings = get_settings()
 settings.images_dir.mkdir(exist_ok=True)
 settings.output_dir.mkdir(exist_ok=True)
 settings.generated_images_dir.mkdir(exist_ok=True)
+settings.prompts_dir.mkdir(exist_ok=True)
 
 # Serve generated videos and images
 app.mount("/videos", StaticFiles(directory=str(settings.output_dir)), name="videos")
@@ -59,10 +62,24 @@ def _get_image_generator() -> ImageGenerator:
     return ImageGenerator(api_key=settings.google_ai_api_key)
 
 
+def _get_prompt_refiner() -> PromptRefinerAgent:
+    """Get configured prompt refiner agent instance."""
+    return PromptRefinerAgent(
+        api_key=settings.google_ai_api_key,
+        prompts_dir=settings.prompts_dir,
+    )
+
+
+def _get_image_processor() -> ImageProcessor:
+    """Get configured image processor instance."""
+    return ImageProcessor(background_color=(255, 255, 255))  # White background
+
+
 def generate_video_task(
     job_id: str,
     prompt: str,
     image_path: str,
+    processed_image_path: str,
     output_path: str,
     duration_seconds: int,
     resolution: str,
@@ -71,10 +88,29 @@ def generate_video_task(
     """Background task for video generation."""
     try:
         jobs[job_id]["status"] = "processing"
+        
+        # Step 1: Process image (remove background, place on canvas)
+        processor = _get_image_processor()
+        processor.process_image(
+            image_path=image_path,
+            output_path=processed_image_path,
+            aspect_ratio=aspect_ratio,
+        )
+        
+        # Step 2: Refine the prompt using the LangChain agent (uses processed image)
+        refiner = _get_prompt_refiner()
+        refined_prompt = refiner.refine_prompt(
+            original_prompt=prompt,
+            job_id=job_id,
+            duration_seconds=duration_seconds,
+            image_path=processed_image_path,
+        )
+        
+        # Step 3: Generate video with refined prompt and processed image
         generator = _get_video_generator()
         generator.generate_video_from_image(
-            prompt=prompt,
-            image_path=image_path,
+            prompt=refined_prompt,
+            image_path=processed_image_path,
             output_path=output_path,
             duration_seconds=duration_seconds,
             resolution=resolution,
@@ -150,7 +186,8 @@ async def generate_video(
     # Save uploaded image to images folder
     job_id = str(uuid.uuid4())
     image_ext = Path(image.filename or "image.jpg").suffix or ".jpg"
-    image_path = settings.images_dir / f"{job_id}{image_ext}"
+    image_path = settings.images_dir / f"{job_id}_original{image_ext}"
+    processed_image_path = settings.images_dir / f"{job_id}_processed.jpg"
     output_path = settings.output_dir / f"{job_id}.mp4"
     
     content = await image.read()
@@ -166,6 +203,7 @@ async def generate_video(
         job_id=job_id,
         prompt=prompt,
         image_path=str(image_path),
+        processed_image_path=str(processed_image_path),
         output_path=str(output_path),
         duration_seconds=duration_seconds,
         resolution=resolution,
