@@ -181,3 +181,4 @@ uv run pytest
 - Push changes without user permission
 - Add unnecessary abstractions for simple operations
 - Over-engineer features beyond what's requested
+
