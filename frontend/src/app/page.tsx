@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 export default function LandingPage() {
@@ -87,7 +88,7 @@ export default function LandingPage() {
           </div>
 
           {/* CTA Button */}
-          <div className="animate-in fade-in slide-in-from-bottom-6 duration-700 delay-300">
+          <div className="mt-16 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-300">
             <Link href="/create">
               <Button
                 size="lg"
@@ -120,28 +121,60 @@ export default function LandingPage() {
               {/* First set of logos */}
               <div className="flex gap-12 items-center flex-shrink-0">
                 {[
-                  { name: "TechCorp", color: "text-indigo-400" },
-                  { name: "InnovateLab", color: "text-violet-400" },
-                  { name: "DigitalFlow", color: "text-rose-400" },
-                  { name: "CreativeStudio", color: "text-cyan-400" },
-                  { name: "BrandHub", color: "text-emerald-400" },
-                  { name: "MediaWorks", color: "text-amber-400" },
-                  { name: "AdVantage", color: "text-pink-400" },
-                  { name: "MarketForce", color: "text-blue-400" },
+                  { 
+                    name: "Shopify", 
+                    logoPath: "/logos/Shopify_logo_2018.svg.png",
+                    color: "text-emerald-400"
+                  },
+                  { 
+                    name: "Notion", 
+                    logoPath: "/logos/Notion-logo.svg.png",
+                    color: "text-zinc-300"
+                  },
+                  { 
+                    name: "Stripe", 
+                    logoPath: "/logos/Stripe_Logo,_revised_2016.svg.png",
+                    color: "text-indigo-400"
+                  },
+                  { 
+                    name: "Amazon", 
+                    logoPath: "/logos/Amazon_logo.svg.webp",
+                    color: "text-orange-400"
+                  },
+                  { 
+                    name: "Figma", 
+                    logoPath: "/logos/Figma-Logo.png",
+                    color: "text-violet-400"
+                  },
+                  { 
+                    name: "Adobe", 
+                    logoPath: "/logos/Adobe_Corporate_logo.svg.png",
+                    color: "text-rose-400"
+                  },
+                  { 
+                    name: "Meta", 
+                    logoPath: "/logos/Meta-Logo.png",
+                    color: "text-blue-400"
+                  },
+                  { 
+                    name: "Google", 
+                    logoPath: "/logos/Google_2015_logo.svg.webp",
+                    color: "text-red-400"
+                  },
                 ].map((company, idx) => (
                   <div
                     key={`first-${idx}`}
-                    className="flex-shrink-0 px-6 py-4 rounded-xl bg-zinc-900/30 border border-zinc-800/30 backdrop-blur-sm hover:bg-zinc-800/50 hover:border-zinc-700/50 transition-all duration-300"
+                    className="shrink-0 px-8 py-6 rounded-xl bg-white/90 border border-zinc-200/50 backdrop-blur-sm hover:bg-white hover:border-zinc-300/50 hover:scale-105 transition-all duration-300 shadow-sm"
                   >
-                    <div className="flex items-center gap-3">
-                      <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${company.color.replace('text-', 'from-')}/20 to-transparent border ${company.color.replace('text-', 'border-')}/30 flex items-center justify-center`}>
-                        <svg className={`w-4 h-4 ${company.color}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                        </svg>
-                      </div>
-                      <span className={`text-sm font-semibold ${company.color} whitespace-nowrap`}>
-                        {company.name}
-                      </span>
+                    <div className="w-20 h-20 flex items-center justify-center">
+                      <Image 
+                        src={company.logoPath} 
+                        alt={`${company.name} Logo`}
+                        width={80}
+                        height={80}
+                        className="object-contain w-full h-full"
+                        unoptimized
+                      />
                     </div>
                   </div>
                 ))}
@@ -150,28 +183,60 @@ export default function LandingPage() {
               {/* Duplicate set for seamless loop */}
               <div className="flex gap-12 items-center flex-shrink-0" aria-hidden="true">
                 {[
-                  { name: "TechCorp", color: "text-indigo-400" },
-                  { name: "InnovateLab", color: "text-violet-400" },
-                  { name: "DigitalFlow", color: "text-rose-400" },
-                  { name: "CreativeStudio", color: "text-cyan-400" },
-                  { name: "BrandHub", color: "text-emerald-400" },
-                  { name: "MediaWorks", color: "text-amber-400" },
-                  { name: "AdVantage", color: "text-pink-400" },
-                  { name: "MarketForce", color: "text-blue-400" },
+                  { 
+                    name: "Shopify", 
+                    logoPath: "/logos/Shopify_logo_2018.svg.png",
+                    color: "text-emerald-400"
+                  },
+                  { 
+                    name: "Notion", 
+                    logoPath: "/logos/Notion-logo.svg.png",
+                    color: "text-zinc-300"
+                  },
+                  { 
+                    name: "Stripe", 
+                    logoPath: "/logos/Stripe_Logo,_revised_2016.svg.png",
+                    color: "text-indigo-400"
+                  },
+                  { 
+                    name: "Amazon", 
+                    logoPath: "/logos/Amazon_logo.svg.webp",
+                    color: "text-orange-400"
+                  },
+                  { 
+                    name: "Figma", 
+                    logoPath: "/logos/Figma-Logo.png",
+                    color: "text-violet-400"
+                  },
+                  { 
+                    name: "Adobe", 
+                    logoPath: "/logos/Adobe_Corporate_logo.svg.png",
+                    color: "text-rose-400"
+                  },
+                  { 
+                    name: "Meta", 
+                    logoPath: "/logos/Meta-Logo.png",
+                    color: "text-blue-400"
+                  },
+                  { 
+                    name: "Google", 
+                    logoPath: "/logos/Google_2015_logo.svg.webp",
+                    color: "text-red-400"
+                  },
                 ].map((company, idx) => (
                   <div
                     key={`second-${idx}`}
-                    className="flex-shrink-0 px-6 py-4 rounded-xl bg-zinc-900/30 border border-zinc-800/30 backdrop-blur-sm hover:bg-zinc-800/50 hover:border-zinc-700/50 transition-all duration-300"
+                    className="shrink-0 px-8 py-6 rounded-xl bg-white/90 border border-zinc-200/50 backdrop-blur-sm hover:bg-white hover:border-zinc-300/50 hover:scale-105 transition-all duration-300 shadow-sm"
                   >
-                    <div className="flex items-center gap-3">
-                      <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${company.color.replace('text-', 'from-')}/20 to-transparent border ${company.color.replace('text-', 'border-')}/30 flex items-center justify-center`}>
-                        <svg className={`w-4 h-4 ${company.color}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                        </svg>
-                      </div>
-                      <span className={`text-sm font-semibold ${company.color} whitespace-nowrap`}>
-                        {company.name}
-                      </span>
+                    <div className="w-20 h-20 flex items-center justify-center">
+                      <Image 
+                        src={company.logoPath} 
+                        alt={`${company.name} Logo`}
+                        width={80}
+                        height={80}
+                        className="object-contain w-full h-full"
+                        unoptimized
+                      />
                     </div>
                   </div>
                 ))}
@@ -424,13 +489,28 @@ export default function LandingPage() {
             <div className="group relative p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800/50 backdrop-blur-sm hover:bg-zinc-800/50 hover:border-zinc-700/50 transition-all duration-300">
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-indigo-500/30 shadow-lg shadow-indigo-500/20 flex-shrink-0">
+                    <Image 
+                      src="/avatars/pexels-photo-774909.jpeg" 
+                      alt="Maria Klein"
+                      width={64}
+                      height={64}
+                      className="w-full h-full object-cover"
+                      unoptimized
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold text-white mb-1">E-Commerce Manager</h3>
+                    <p className="text-sm text-zinc-500">Maria Klein</p>
+                  </div>
+                </div>
                 <div className="w-10 h-10 rounded-lg bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center mb-4">
                   <svg className="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">E-Commerce Manager</h3>
-                <p className="text-zinc-400 text-sm leading-relaxed mb-3">
+                <p className="text-zinc-400 text-sm leading-relaxed mb-3 italic">
                   "Ich erstelle täglich Werbeinhalte für unsere Produkte. Mit adsgen.ai kann ich 
                   aus einem Produktbild in Minuten professionelle Social-Media-Videos generieren, 
                   ohne ein Videoteam zu benötigen."
@@ -447,13 +527,28 @@ export default function LandingPage() {
             <div className="group relative p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800/50 backdrop-blur-sm hover:bg-zinc-800/50 hover:border-zinc-700/50 transition-all duration-300">
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-violet-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-violet-500/30 shadow-lg shadow-violet-500/20 flex-shrink-0">
+                    <Image 
+                      src="/avatars/360_F_115852367_E6iIYA8OxHDmRhjw7kOq4uYe4t440f14.jpg" 
+                      alt="Thomas Weber"
+                      width={64}
+                      height={64}
+                      className="w-full h-full object-cover"
+                      unoptimized
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold text-white mb-1">Marketing-Agentur</h3>
+                    <p className="text-sm text-zinc-500">Thomas Weber</p>
+                  </div>
+                </div>
                 <div className="w-10 h-10 rounded-lg bg-violet-500/15 border border-violet-500/30 flex items-center justify-center mb-4">
                   <svg className="w-5 h-5 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">Marketing-Agentur</h3>
-                <p className="text-zinc-400 text-sm leading-relaxed mb-3">
+                <p className="text-zinc-400 text-sm leading-relaxed mb-3 italic">
                   "Für unsere Kunden müssen wir schnell und kosteneffizient Werbeinhalte erstellen. 
                   adsgen.ai ermöglicht es uns, mehr Projekte in kürzerer Zeit zu bearbeiten und 
                   gleichzeitig die Qualität hoch zu halten."
@@ -470,13 +565,28 @@ export default function LandingPage() {
             <div className="group relative p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800/50 backdrop-blur-sm hover:bg-zinc-800/50 hover:border-zinc-700/50 transition-all duration-300">
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-rose-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-rose-500/30 shadow-lg shadow-rose-500/20 flex-shrink-0">
+                    <Image 
+                      src="/avatars/pexels-olly-733872.jpg" 
+                      alt="Lisa Schmidt"
+                      width={64}
+                      height={64}
+                      className="w-full h-full object-cover"
+                      unoptimized
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold text-white mb-1">Startup-Gründer</h3>
+                    <p className="text-sm text-zinc-500">Lisa Schmidt</p>
+                  </div>
+                </div>
                 <div className="w-10 h-10 rounded-lg bg-rose-500/15 border border-rose-500/30 flex items-center justify-center mb-4">
                   <svg className="w-5 h-5 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">Startup-Gründer</h3>
-                <p className="text-zinc-400 text-sm leading-relaxed mb-3">
+                <p className="text-zinc-400 text-sm leading-relaxed mb-3 italic">
                   "Als Startup haben wir kein großes Marketing-Budget. adsgen.ai gibt uns die 
                   Möglichkeit, professionelle Werbeinhalte zu erstellen, die mit großen Marken 
                   mithalten können – zu einem Bruchteil der Kosten."
@@ -504,7 +614,7 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Team Member 1 */}
             <div className="group relative p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800/50 backdrop-blur-sm hover:bg-zinc-800/50 hover:border-zinc-700/50 transition-all duration-300 text-center">
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -514,7 +624,7 @@ export default function LandingPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-1">Alex Schmidt</h3>
+                <h3 className="text-lg font-semibold text-white mb-1">Jakob Kramer</h3>
                 <p className="text-sm text-indigo-400 mb-3">Lead Developer</p>
                 <p className="text-xs text-zinc-500 leading-relaxed">
                   Verantwortlich für Backend-Architektur und API-Integration. Experte für FastAPI 
@@ -527,12 +637,17 @@ export default function LandingPage() {
             <div className="group relative p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800/50 backdrop-blur-sm hover:bg-zinc-800/50 hover:border-zinc-700/50 transition-all duration-300 text-center">
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-violet-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative">
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-violet-500/20 to-rose-500/20 border-2 border-violet-500/30 mx-auto mb-4 flex items-center justify-center">
-                  <svg className="w-10 h-10 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
+                <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-violet-500/30 mx-auto mb-4 flex items-center justify-center shadow-lg shadow-violet-500/20">
+                  <Image 
+                    src="/devs/Niclas.png" 
+                    alt="Niclas Hart"
+                    width={80}
+                    height={80}
+                    className="w-full h-full object-cover"
+                    unoptimized
+                  />
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-1">Sarah Chen</h3>
+                <h3 className="text-lg font-semibold text-white mb-1">Niclas Hart</h3>
                 <p className="text-sm text-violet-400 mb-3">Frontend Engineer</p>
                 <p className="text-xs text-zinc-500 leading-relaxed">
                   Spezialisiert auf Next.js und React. Gestaltet intuitive Benutzeroberflächen 
@@ -550,7 +665,7 @@ export default function LandingPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-1">Max Weber</h3>
+                <h3 className="text-lg font-semibold text-white mb-1">Tobias Saur</h3>
                 <p className="text-sm text-rose-400 mb-3">AI/ML Engineer</p>
                 <p className="text-xs text-zinc-500 leading-relaxed">
                   Entwickelt und optimiert KI-Modelle. Experte für Prompt-Engineering und 
@@ -559,23 +674,6 @@ export default function LandingPage() {
               </div>
             </div>
 
-            {/* Team Member 4 */}
-            <div className="group relative p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800/50 backdrop-blur-sm hover:bg-zinc-800/50 hover:border-zinc-700/50 transition-all duration-300 text-center">
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative">
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border-2 border-emerald-500/30 mx-auto mb-4 flex items-center justify-center">
-                  <svg className="w-10 h-10 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-1">Lisa Müller</h3>
-                <p className="text-sm text-emerald-400 mb-3">Product Manager</p>
-                <p className="text-xs text-zinc-500 leading-relaxed">
-                  Verantwortlich für Produktstrategie und User Experience. Verbindet Technologie 
-                  mit Geschäftsanforderungen.
-                </p>
-              </div>
-            </div>
           </div>
         </section>
 
