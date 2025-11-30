@@ -24,6 +24,10 @@ ads_gen/
 
 ## Setup
 
+### Allgemeine Installationen
+```sudo apt install ffmpeg
+```
+
 ### Backend
 
 1. Install Python dependencies:

@@ -1,0 +1,8 @@
+{
+  "original": "Make the sushi picture animated with some slight movement and someone picking up the sticks and taking one sushi slice away. keep the original image and do not create something new, just animate the image with the given instruction",
+  "refined": "The line of fresh sushi rolls from the input image, showcasing white rice, dark green nori, vibrant green avocado, and soft orange salmon, is perfectly arranged on a clean, light-colored ceramic plate. The camera holds a steady, slightly elevated close-up view, emphasizing the intricate layers of each piece. A hand gracefully enters the frame from the right, holding dark wooden chopsticks. With precise movement, the chopsticks gently grasp the nearest sushi roll and lift it smoothly upwards and out of the frame. Bright, natural lighting accentuates the freshness and vibrant colors, creating an inviting and clean aesthetic.",
+  "duration_seconds": 4,
+  "image_path": "images/5ace6224-180d-42b0-9756-90ca40bebfdd_processed.jpg",
+  "timestamp": "2025-11-30T12:49:04.783669",
+  "job_id": "5ace6224-180d-42b0-9756-90ca40bebfdd"
+}

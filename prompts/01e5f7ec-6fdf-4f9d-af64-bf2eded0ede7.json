@@ -1,0 +1,8 @@
+{
+  "original": "Generate an 8-second, aggressive, and high-adrenaline video ad for the Ferrari model in the image. The video must feature a rapid sequence of extreme close-ups on car details (0-2s), transition to dynamic, fast-paced driving footage on a cinematic road (3-6s), and conclude with a slow-motion, majestic reveal of the full car in an exclusive setting (7-8s). Emphasize the sound of the engine and a dark, polished aesthetic.",
+  "refined": "An 8-second high-adrenaline video ad for the Ferrari. The scene opens with an extreme close-up on the sleek, angular LED headlight of the glossy red Ferrari from the input image. A swift cut transitions to a tight shot of the car's aggressive front grille with its intricate black honeycomb pattern and the \"AHS\" license plate, subtly revealing the metallic grey racing stripes on the hood. The camera then cuts to a dynamic, low-angle tracking shot as the vibrant red Ferrari speeds along a winding, sun-drenched coastal highway, its aerodynamic form cutting through the air. Finally, the scene transitions to the Ferrari parked majestically within a sleek, minimalist, dimly lit modern showroom. A slow, deliberate dolly out reveals the entire car, its highly polished red surface and dark tinted windows reflecting the focused, dramatic spotlights that create sharp highlights and deep, luxurious shadows. The atmosphere is aggressive, high-adrenaline, and exudes a dark, polished aesthetic, emphasizing the car's powerful presence.",
+  "duration_seconds": 8,
+  "image_path": "images/01e5f7ec-6fdf-4f9d-af64-bf2eded0ede7_processed.jpg",
+  "timestamp": "2025-11-30T10:30:01.247993",
+  "job_id": "01e5f7ec-6fdf-4f9d-af64-bf2eded0ede7"
+}

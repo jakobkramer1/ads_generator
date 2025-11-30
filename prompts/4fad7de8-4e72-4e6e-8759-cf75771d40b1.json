@@ -1,0 +1,8 @@
+{
+  "original": "Make the sushi picture animated with some slight movement. keep the original image and do not create something new, just animate the image with the given instruction",
+  "refined": "A row of fresh maki sushi rolls, featuring vibrant green avocado, delicate pale orange salmon, and glistening white rice meticulously wrapped in dark green nori, is arranged diagonally on a clean, light-colored serving board. The camera executes a slow, smooth push-in, gradually bringing the intricate textures and vibrant colors of each roll into sharp focus. Soft, diffused overhead lighting enhances the freshness and highlights the subtle sheen on the rice. The overall mood is clean, appetizing, and inviting.",
+  "duration_seconds": 4,
+  "image_path": "images/4fad7de8-4e72-4e6e-8759-cf75771d40b1_processed.jpg",
+  "timestamp": "2025-11-30T12:50:29.159401",
+  "job_id": "4fad7de8-4e72-4e6e-8759-cf75771d40b1"
+}

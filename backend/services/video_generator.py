@@ -2,6 +2,7 @@ import time
 from pathlib import Path
 from google import genai
 from google.genai import types
+from moviepy.editor import VideoFileClip
 
 
 class VideoGenerator:
@@ -9,6 +10,64 @@ class VideoGenerator:
 
     def __init__(self, api_key: str):
         self.client = genai.Client(api_key=api_key)
+
+    def _trim_first_second(self, video_path: str) -> str:
+        """
+        Trim the first second from a video file.
+        
+        Args:
+            video_path: Path to the input video file
+            
+        Returns:
+            Path to the trimmed video (same path, overwrites original)
+        """
+        try:
+            clip = VideoFileClip(video_path)
+            # Only trim if video is longer than 1 second
+            if clip.duration > 1.0:
+                # Trim first second (start at 1 second, keep until end)
+                trimmed_clip = clip.subclip(1, clip.duration)
+                
+                # Create temporary output path
+                temp_path = str(Path(video_path).with_suffix('.tmp.mp4'))
+                
+                # Write to temporary file first to ensure proper encoding
+                trimmed_clip.write_videofile(
+                    temp_path,
+                    codec='libx264',
+                    audio_codec='aac' if trimmed_clip.audio else None,
+                    temp_audiofile='temp-audio.m4a',
+                    remove_temp=True,
+                    verbose=False,
+                    logger=None,
+                    preset='medium',
+                    ffmpeg_params=['-crf', '23', '-pix_fmt', 'yuv420p', '-movflags', '+faststart']
+                )
+                trimmed_clip.close()
+                clip.close()
+                
+                # Replace original with trimmed version
+                import shutil
+                shutil.move(temp_path, video_path)
+            else:
+                clip.close()
+            return video_path
+        except ImportError:
+            # If moviepy is not available, return original video
+            print("Warning: moviepy not available, skipping video trim")
+            return video_path
+        except Exception as e:
+            # If trimming fails, return original video path
+            # Log error but don't fail the whole generation
+            print(f"Warning: Could not trim video: {e}")
+            # Clean up temp file if it exists
+            temp_path = str(Path(video_path).with_suffix('.tmp.mp4'))
+            if Path(temp_path).exists():
+                try:
+                    Path(temp_path).unlink()
+                except:
+                    pass
+            return video_path
 
     def _load_image(self, image_path: str) -> types.Image:
         """Load an image from file and convert to Veo-compatible format."""
@@ -79,6 +138,9 @@ class VideoGenerator:
         self.client.files.download(file=video.video)
         video.video.save(output_path)
         
+        # Trim first second (removes the initial static image frame)
+        self._trim_first_second(output_path)
+        
         return output_path
 
     def generate_video_with_references(
@@ -129,5 +191,8 @@ class VideoGenerator:
         video = operation.response.generated_videos[0]
         self.client.files.download(file=video.video)
         video.video.save(output_path)
+        
+        # Trim first second (removes the initial static image frame)
+        self._trim_first_second(output_path)
         
         return output_path

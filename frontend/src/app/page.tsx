@@ -64,29 +64,6 @@ export default function LandingPage() {
             Professionelle Qualität in Minuten, nicht Stunden.
           </p>
 
-          {/* Solution Description */}
-          <div className="mt-20 max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-6 duration-700 delay-300">
-            <div className="p-10 rounded-3xl bg-gradient-to-br from-zinc-900/60 via-zinc-900/40 to-zinc-900/60 border border-zinc-800/50 backdrop-blur-sm shadow-xl shadow-black/20 hover:shadow-2xl hover:shadow-violet-500/10 transition-all duration-500">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-1 h-8 bg-gradient-to-b from-indigo-500 to-violet-500 rounded-full"></div>
-                <h2 className="text-3xl font-bold text-white">
-                  Die Zukunft der Werbeerstellung
-                </h2>
-              </div>
-              <p className="text-zinc-300 leading-relaxed mb-4 text-lg">
-                adsgen.ai revolutioniert die Art und Weise, wie Unternehmen Werbeinhalte erstellen. 
-                Mit unserer KI-gestützten Plattform können Sie aus einem einfachen Produktbild 
-                professionelle Werbevideos und -bilder generieren – ohne teure Agenturen oder 
-                zeitaufwändige Produktionen.
-              </p>
-              <p className="text-zinc-400 leading-relaxed text-base">
-                Nutzen Sie die neueste Technologie von Google (Veo 3.1 für Videos und Gemini 2.5 Flash 
-                für Bilder), um in Sekunden hochwertige Inhalte zu erstellen, die Ihre Zielgruppe 
-                begeistern und Ihre Conversion-Raten steigern.
-              </p>
-            </div>
-          </div>
-
           {/* CTA Button */}
           <div className="mt-16 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-300">
             <Link href="/create">
@@ -104,8 +81,392 @@ export default function LandingPage() {
           </div>
         </div>
 
-        {/* Trust Banner - Unternehmen die uns vertrauen */}
+        {/* How It Works Section */}
+        <section className="mt-32 sm:mt-40 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-400">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
+                So funktioniert's
+              </span>
+            </h2>
+            <p className="text-zinc-500 max-w-xl mx-auto">
+              In nur 4 einfachen Schritten zu professionellen Werbeinhalten
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {/* Step 1 */}
+            <div className="group relative p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800/50 backdrop-blur-sm hover:bg-zinc-800/50 hover:border-zinc-700/50 transition-all duration-300 text-center">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-gradient-to-r from-indigo-600 to-violet-600 flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-indigo-500/30">
+                1
+              </div>
+              <div className="mt-4 mb-4 flex justify-center">
+                <div className="w-16 h-16 rounded-xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center">
+                  <svg className="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                  </svg>
+                </div>
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">Bild hochladen</h3>
+              <p className="text-zinc-500 text-sm leading-relaxed">
+                Lade dein Produktbild oder Referenzbild per Drag & Drop hoch
+              </p>
+            </div>
+
+            {/* Step 2 */}
+            <div className="group relative p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800/50 backdrop-blur-sm hover:bg-zinc-800/50 hover:border-zinc-700/50 transition-all duration-300 text-center">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-gradient-to-r from-violet-600 to-rose-600 flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-violet-500/30">
+                2
+              </div>
+              <div className="mt-4 mb-4 flex justify-center">
+                <div className="w-16 h-16 rounded-xl bg-violet-500/15 border border-violet-500/30 flex items-center justify-center">
+                  <svg className="w-8 h-8 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                  </svg>
+                </div>
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">Prompt eingeben</h3>
+              <p className="text-zinc-500 text-sm leading-relaxed">
+                Beschreibe, was du erstellen möchtest – unsere KI optimiert es automatisch
+              </p>
+            </div>
+
+            {/* Step 3 */}
+            <div className="group relative p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800/50 backdrop-blur-sm hover:bg-zinc-800/50 hover:border-zinc-700/50 transition-all duration-300 text-center">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-gradient-to-r from-rose-600 to-amber-600 flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-rose-500/30">
+                3
+              </div>
+              <div className="mt-4 mb-4 flex justify-center">
+                <div className="w-16 h-16 rounded-xl bg-rose-500/15 border border-rose-500/30 flex items-center justify-center">
+                  <svg className="w-8 h-8 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                  </svg>
+                </div>
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">Format wählen</h3>
+              <p className="text-zinc-500 text-sm leading-relaxed">
+                Wähle Format, Auflösung und Dauer – perfekt für deine Plattform
+              </p>
+            </div>
+
+            {/* Step 4 */}
+            <div className="group relative p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800/50 backdrop-blur-sm hover:bg-zinc-800/50 hover:border-zinc-700/50 transition-all duration-300 text-center">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-gradient-to-r from-amber-600 to-emerald-600 flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-amber-500/30">
+                4
+              </div>
+              <div className="mt-4 mb-4 flex justify-center">
+                <div className="w-16 h-16 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center">
+                  <svg className="w-8 h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">Downloaden</h3>
+              <p className="text-zinc-500 text-sm leading-relaxed">
+                Lade dein fertiges Video oder Bild sofort herunter – ohne Wasserzeichen
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link href="/create">
+              <Button
+                variant="outline"
+                className="border-zinc-700/50 bg-zinc-900/50 text-zinc-300 hover:bg-zinc-800/80 hover:text-white hover:border-zinc-600/50 backdrop-blur-sm transition-all duration-300"
+              >
+                Jetzt ausprobieren
+                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Button>
+            </Link>
+          </div>
+        </section>
+
+        {/* Solution Description */}
         <section className="mt-24 sm:mt-32 mb-16 sm:mb-24 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-400">
+          <div className="max-w-4xl mx-auto">
+            <div className="p-8 rounded-3xl bg-gradient-to-br from-zinc-900/60 via-zinc-900/40 to-zinc-900/60 border border-zinc-800/50 backdrop-blur-sm shadow-xl shadow-black/20 hover:shadow-2xl hover:shadow-violet-500/10 transition-all duration-500">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-1 h-8 bg-gradient-to-b from-indigo-500 to-violet-500 rounded-full"></div>
+                <h2 className="text-2xl sm:text-3xl font-bold text-white">
+                  Die Zukunft der Werbeerstellung
+                </h2>
+              </div>
+              <p className="text-zinc-300 leading-relaxed text-base sm:text-lg">
+                Mit unserer KI-gestützten Plattform generierst du aus einfachen Produktbildern 
+                professionelle Werbevideos und -bilder – ohne teure Agenturen oder zeitaufwändige Produktionen.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Demo/Examples Section */}
+        <section className="mt-24 sm:mt-32 mb-16 sm:mb-24 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-500">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
+                Sieh dir an, was möglich ist
+              </span>
+            </h2>
+            <p className="text-zinc-500 max-w-xl mx-auto">
+              Professionelle Ergebnisse in Minuten – keine Agentur nötig
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-16">
+            {/* Video Example - Before/After */}
+            <div className="group relative overflow-hidden rounded-2xl bg-zinc-900/60 border border-zinc-800/50 backdrop-blur-sm hover:border-zinc-700/50 transition-all duration-300 flex flex-col h-full">
+              <div className="aspect-video relative bg-zinc-900 overflow-hidden flex-shrink-0 grid grid-cols-2 gap-0">
+                {/* Before - Original Image */}
+                <div className="relative bg-zinc-800/50 border-r border-zinc-700/30 overflow-hidden">
+                  <Image
+                    src="/example_video/louis-vuitton-imagination--LP0219_PM2_Front%20view.avif"
+                    alt="Originalbild für Video-Generierung"
+                    fill
+                    className="object-cover"
+                    unoptimized
+                  />
+                  <div className="absolute top-2 left-2 px-2 py-1 rounded bg-zinc-900/80 backdrop-blur-sm text-xs text-zinc-400 font-medium">
+                    Vorher
+                  </div>
+                </div>
+                {/* Arrow */}
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-emerald-500/90 backdrop-blur-sm flex items-center justify-center border-2 border-zinc-900/50">
+                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </div>
+                {/* After - Generated Video */}
+                <div className="relative bg-black overflow-hidden">
+                  <video
+                    className="w-full h-full object-cover absolute inset-0"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    style={{ objectFit: 'cover' }}
+                  >
+                    <source src="/example_video/e42163fd-5236-40c0-a847-8ed38dd4fcc6.mp4" type="video/mp4" />
+                  </video>
+                  <div className="absolute top-2 right-2 px-2 py-1 rounded bg-emerald-500/90 backdrop-blur-sm text-xs text-white font-medium z-10">
+                    Nachher
+                  </div>
+                </div>
+              </div>
+              <div className="p-6 flex flex-col flex-grow">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
+                  <span className="text-xs text-zinc-500 uppercase tracking-wider font-medium">KI-Video-Generierung</span>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3 leading-tight">Dynamische Werbevideos</h3>
+                <p className="text-sm text-zinc-400 mb-4 flex-grow leading-relaxed">
+                  Erstelle fesselnde Videos aus Produktbildern. Perfekt für Social Media, 
+                  Werbeanzeigen und Marketing-Kampagnen.
+                </p>
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  <span className="px-2 py-1 rounded-md bg-zinc-800/50 text-xs text-zinc-400">16:9 • 9:16</span>
+                  <span className="px-2 py-1 rounded-md bg-zinc-800/50 text-xs text-zinc-400">720p • 1080p</span>
+                  <span className="px-2 py-1 rounded-md bg-zinc-800/50 text-xs text-zinc-400">4-8 Sek.</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Image Example - Before/After */}
+            <div className="group relative overflow-hidden rounded-2xl bg-zinc-900/60 border border-zinc-800/50 backdrop-blur-sm hover:border-zinc-700/50 transition-all duration-300 flex flex-col h-full">
+              <div className="aspect-video relative bg-zinc-900 overflow-hidden flex-shrink-0 grid grid-cols-2 gap-0">
+                {/* Before - Original Image */}
+                <div className="relative bg-zinc-800/50 border-r border-zinc-700/30 overflow-hidden">
+                  <Image
+                    src="/example_image/sprite%20original.png"
+                    alt="Originalbild für Bild-Generierung"
+                    fill
+                    className="object-cover"
+                    unoptimized
+                  />
+                  <div className="absolute top-2 left-2 px-2 py-1 rounded bg-zinc-900/80 backdrop-blur-sm text-xs text-zinc-400 font-medium">
+                    Vorher
+                  </div>
+                </div>
+                {/* Arrow */}
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-violet-500/90 backdrop-blur-sm flex items-center justify-center border-2 border-zinc-900/50">
+                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </div>
+                {/* After - Generated Image */}
+                <div className="relative">
+                  <Image
+                    src="/example_image/sprite%20ai.png"
+                    alt="Beispiel generiertes Werbebild"
+                    fill
+                    className="object-cover"
+                    unoptimized
+                  />
+                  <div className="absolute top-2 right-2 px-2 py-1 rounded bg-violet-500/90 backdrop-blur-sm text-xs text-white font-medium">
+                    Nachher
+                  </div>
+                </div>
+              </div>
+              <div className="p-6 flex flex-col flex-grow">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-2 h-2 rounded-full bg-violet-500"></div>
+                  <span className="text-xs text-zinc-500 uppercase tracking-wider font-medium">KI-Bild-Generierung</span>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3 leading-tight">Professionelle Werbebilder</h3>
+                <p className="text-sm text-zinc-400 mb-4 flex-grow leading-relaxed">
+                  Transformiere Produktbilder in ansprechende Werbeinhalte. Ideal für 
+                  Instagram, Facebook Ads und Print-Materialien.
+                </p>
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  <span className="px-2 py-1 rounded-md bg-zinc-800/50 text-xs text-zinc-400">1:1 • 16:9 • 9:16</span>
+                  <span className="px-2 py-1 rounded-md bg-zinc-800/50 text-xs text-zinc-400">HD Qualität</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Scrolling Examples Section */}
+        <section className="mt-32 sm:mt-40 mb-16 sm:mb-24 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-500">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
+                Beispiele unserer Arbeit
+              </span>
+            </h2>
+            <p className="text-zinc-500 max-w-xl mx-auto">
+              Entdecke die Vielfalt unserer generierten Inhalte
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+            {/* Scrolling Images - Top to Bottom */}
+            <div className="relative">
+              <div className="text-center mb-4">
+                <h3 className="text-lg font-semibold text-white mb-2">Generierte Bilder</h3>
+              </div>
+              <div className="relative h-[600px] overflow-hidden rounded-2xl bg-zinc-900/40 border border-zinc-800/50 backdrop-blur-sm">
+                {/* Gradient overlays for smooth fade effect */}
+                <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#08080c] to-transparent z-10 pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#08080c] to-transparent z-10 pointer-events-none"></div>
+                
+                {/* Scrolling images container */}
+                <div className="flex flex-col animate-scroll-down gap-4 p-4">
+                  {/* First set of images */}
+                  {[
+                    { src: "/slideshow_image/restaurant%20refined.png", alt: "Restaurant Werbebild" },
+                    { src: "/slideshow_image/sushiai.png", alt: "Sushi Werbebild" },
+                    { src: "/slideshow_image/restaurant%20refined.png", alt: "Restaurant Werbebild" },
+                    { src: "/slideshow_image/sushiai.png", alt: "Sushi Werbebild" },
+                  ].map((img, i) => (
+                    <div
+                      key={`image-1-${i}`}
+                      className="shrink-0 w-full aspect-square rounded-xl border border-zinc-800/50 overflow-hidden relative bg-zinc-900"
+                    >
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        fill
+                        className="object-cover"
+                        unoptimized
+                      />
+                    </div>
+                  ))}
+                  
+                  {/* Duplicate set for seamless loop */}
+                  {[
+                    { src: "/slideshow_image/restaurant%20refined.png", alt: "Restaurant Werbebild" },
+                    { src: "/slideshow_image/sushiai.png", alt: "Sushi Werbebild" },
+                    { src: "/slideshow_image/restaurant%20refined.png", alt: "Restaurant Werbebild" },
+                    { src: "/slideshow_image/sushiai.png", alt: "Sushi Werbebild" },
+                  ].map((img, i) => (
+                    <div
+                      key={`image-2-${i}`}
+                      className="shrink-0 w-full aspect-square rounded-xl border border-zinc-800/50 overflow-hidden relative bg-zinc-900"
+                      aria-hidden="true"
+                    >
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        fill
+                        className="object-cover"
+                        unoptimized
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Scrolling Videos - Bottom to Top */}
+            <div className="relative">
+              <div className="text-center mb-4">
+                <h3 className="text-lg font-semibold text-white mb-2">Generierte Videos</h3>
+              </div>
+              <div className="relative h-[600px] overflow-hidden rounded-2xl bg-zinc-900/40 border border-zinc-800/50 backdrop-blur-sm">
+                {/* Gradient overlays for smooth fade effect */}
+                <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#08080c] to-transparent z-10 pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#08080c] to-transparent z-10 pointer-events-none"></div>
+                
+                {/* Scrolling videos container */}
+                <div className="flex flex-col animate-scroll-up gap-4 p-4">
+                  {/* First set of videos */}
+                  {[
+                    { src: "/slideshow_video/97d82519-2988-4233-9427-c87f9a2cbb07.mp4" },
+                    { src: "/slideshow_video/01e5f7ec-6fdf-4f9d-af64-bf2eded0ede7_3s.mp4" },
+                    { src: "/slideshow_video/97d82519-2988-4233-9427-c87f9a2cbb07.mp4" },
+                    { src: "/slideshow_video/01e5f7ec-6fdf-4f9d-af64-bf2eded0ede7_3s.mp4" },
+                  ].map((video, i) => (
+                    <div
+                      key={`video-1-${i}`}
+                      className="shrink-0 w-full aspect-video rounded-xl border border-zinc-800/50 overflow-hidden relative bg-black"
+                    >
+                      <video
+                        className="w-full h-full object-cover absolute inset-0"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        style={{ objectFit: 'cover' }}
+                      >
+                        <source src={video.src} type="video/mp4" />
+                      </video>
+                    </div>
+                  ))}
+                  
+                  {/* Duplicate set for seamless loop */}
+                  {[
+                    { src: "/slideshow_video/97d82519-2988-4233-9427-c87f9a2cbb07.mp4" },
+                    { src: "/slideshow_video/01e5f7ec-6fdf-4f9d-af64-bf2eded0ede7_3s.mp4" },
+                    { src: "/slideshow_video/97d82519-2988-4233-9427-c87f9a2cbb07.mp4" },
+                    { src: "/slideshow_video/01e5f7ec-6fdf-4f9d-af64-bf2eded0ede7_3s.mp4" },
+                  ].map((video, i) => (
+                    <div
+                      key={`video-2-${i}`}
+                      className="shrink-0 w-full aspect-video rounded-xl border border-zinc-800/50 overflow-hidden relative bg-black"
+                      aria-hidden="true"
+                    >
+                      <video
+                        className="w-full h-full object-cover absolute inset-0"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        style={{ objectFit: 'cover' }}
+                      >
+                        <source src={video.src} type="video/mp4" />
+                      </video>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Trust Banner - Unternehmen die uns vertrauen */}
+        <section className="mt-24 sm:mt-32 mb-16 sm:mb-24 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-600">
           <div className="text-center mb-8">
             <p className="text-sm text-zinc-500 uppercase tracking-wider mb-2">Vertrauen von führenden Unternehmen</p>
             <div className="h-px w-24 bg-gradient-to-r from-transparent via-zinc-700 to-transparent mx-auto"></div>
@@ -246,7 +607,7 @@ export default function LandingPage() {
         </section>
 
         {/* Features Section */}
-        <section className="mt-32 sm:mt-40 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-500">
+        <section id="features" className="mt-32 sm:mt-40 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-500">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               <span className="bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
@@ -601,8 +962,283 @@ export default function LandingPage() {
           </div>
         </section>
 
+        {/* Pricing Section */}
+        <section id="pricing" className="mt-32 sm:mt-40 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-700">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
+                Transparente Preise
+              </span>
+            </h2>
+            <p className="text-zinc-500 max-w-xl mx-auto">
+              Flexibles Token-System – zahle nur für das, was du brauchst
+            </p>
+          </div>
+
+          <div className="max-w-6xl mx-auto space-y-8">
+            {/* Free Registration */}
+            <div className="relative overflow-hidden rounded-2xl bg-zinc-900/60 border border-emerald-500/30 backdrop-blur-sm p-6 sm:p-8">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <div>
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center">
+                      <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-bold text-white">Kostenlose Registrierung</h3>
+                  </div>
+                  <p className="text-zinc-400 text-sm">Starte sofort mit 10 kostenlosen Tokens – keine Kreditkarte erforderlich</p>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="text-right">
+                    <p className="text-3xl font-bold text-emerald-400">10 Tokens</p>
+                    <p className="text-sm text-zinc-500">gratis</p>
+                  </div>
+                  <Link href="/create">
+                    <Button
+                      className="h-10 px-6 text-sm font-semibold rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white transition-all duration-300"
+                    >
+                      Jetzt starten
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Monthly Membership */}
+            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-zinc-900/80 to-zinc-900/40 border-2 border-violet-500/30 backdrop-blur-sm p-8 sm:p-10">
+              {/* Popular badge */}
+              <div className="absolute top-6 right-6 px-4 py-1 rounded-full bg-gradient-to-r from-violet-600 to-rose-600 text-xs font-semibold text-white">
+                Empfohlen
+              </div>
+
+              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-8">
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-2">Monatliche Mitgliedschaft</h3>
+                  <p className="text-zinc-400">Ideal für regelmäßige Content-Erstellung</p>
+                </div>
+                <div className="text-left lg:text-right">
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-4xl sm:text-5xl font-bold text-white">25€</span>
+                    <span className="text-zinc-500">/Monat</span>
+                  </div>
+                  <p className="text-violet-400 font-medium">100 Tokens inklusive</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                <div className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <p className="text-zinc-300 text-sm">100 Tokens monatlich</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <p className="text-zinc-300 text-sm">Alle Formate & Auflösungen</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <p className="text-zinc-300 text-sm">Keine Wasserzeichen</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <p className="text-zinc-300 text-sm">Zusätzliche Tokens kaufbar</p>
+                </div>
+              </div>
+
+              <div className="text-center">
+                <Link href="/create">
+                  <Button
+                    size="lg"
+                    className="h-12 px-8 text-base font-semibold rounded-xl bg-gradient-to-r from-indigo-600 via-violet-600 to-rose-600 hover:from-indigo-500 hover:via-violet-500 hover:to-rose-500 text-white shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+                  >
+                    Mitglied werden
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            {/* Token Packages */}
+            <div>
+              <h3 className="text-xl font-bold text-white mb-6 text-center">Zusätzliche Token-Pakete</h3>
+              <p className="text-center text-sm text-zinc-500 mb-6">Für Mitglieder: Kaufe zusätzliche Tokens nach Bedarf</p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {/* 100 Tokens */}
+                <div className="relative overflow-hidden rounded-2xl bg-zinc-900/60 border border-zinc-800/50 backdrop-blur-sm p-6 hover:border-indigo-500/30 transition-all duration-300 group">
+                  <div className="text-center">
+                    <p className="text-3xl font-bold text-white mb-1">100</p>
+                    <p className="text-zinc-500 text-sm mb-4">Tokens</p>
+                    <p className="text-2xl font-bold text-indigo-400 mb-2">15€</p>
+                    <p className="text-xs text-zinc-500">0,15€ pro Token</p>
+                  </div>
+                </div>
+
+                {/* 200 Tokens */}
+                <div className="relative overflow-hidden rounded-2xl bg-zinc-900/60 border border-violet-500/30 backdrop-blur-sm p-6 hover:border-violet-500/50 transition-all duration-300">
+                  <div className="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-violet-500/20 text-xs text-violet-400 font-medium">
+                    Beliebt
+                  </div>
+                  <div className="text-center">
+                    <p className="text-3xl font-bold text-white mb-1">200</p>
+                    <p className="text-zinc-500 text-sm mb-4">Tokens</p>
+                    <p className="text-2xl font-bold text-violet-400 mb-2">25€</p>
+                    <p className="text-xs text-zinc-500">0,125€ pro Token</p>
+                  </div>
+                </div>
+
+                {/* 500 Tokens */}
+                <div className="relative overflow-hidden rounded-2xl bg-zinc-900/60 border border-emerald-500/30 backdrop-blur-sm p-6 hover:border-emerald-500/50 transition-all duration-300">
+                  <div className="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-emerald-500/20 text-xs text-emerald-400 font-medium">
+                    Bester Wert
+                  </div>
+                  <div className="text-center">
+                    <p className="text-3xl font-bold text-white mb-1">500</p>
+                    <p className="text-zinc-500 text-sm mb-4">Tokens</p>
+                    <p className="text-2xl font-bold text-emerald-400 mb-2">50€</p>
+                    <p className="text-xs text-zinc-500">0,10€ pro Token</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section id="faq" className="mt-32 sm:mt-40 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-800">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
+                Häufige Fragen
+              </span>
+            </h2>
+            <p className="text-zinc-500 max-w-xl mx-auto">
+              Alles, was du über adsgen.ai wissen musst
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto space-y-4">
+            {/* FAQ Item 1 */}
+            <div className="group p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800/50 backdrop-blur-sm hover:bg-zinc-800/50 hover:border-zinc-700/50 transition-all duration-300">
+              <div className="flex items-start gap-4">
+                <div className="w-8 h-8 rounded-lg bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg className="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-semibold text-white mb-2">Wie funktioniert die KI-Generierung?</h3>
+                  <p className="text-zinc-400 text-sm leading-relaxed">
+                    Wir nutzen die neueste Technologie von Google: Veo 3.1 für Videos und Gemini 2.5 Flash für Bilder. 
+                    Du lädst einfach ein Bild hoch, beschreibst was du möchtest, und unsere KI erstellt professionelle 
+                    Werbeinhalte in wenigen Minuten.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* FAQ Item 2 */}
+            <div className="group p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800/50 backdrop-blur-sm hover:bg-zinc-800/50 hover:border-zinc-700/50 transition-all duration-300">
+              <div className="flex items-start gap-4">
+                <div className="w-8 h-8 rounded-lg bg-violet-500/15 border border-violet-500/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg className="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-semibold text-white mb-2">Wie lange dauert die Generierung?</h3>
+                  <p className="text-zinc-400 text-sm leading-relaxed">
+                    Die Generierungszeit hängt von der Komplexität ab, beträgt aber typischerweise 2-5 Minuten für Videos 
+                    und 30-60 Sekunden für Bilder. Du kannst den Fortschritt in Echtzeit verfolgen.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* FAQ Item 3 */}
+            <div className="group p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800/50 backdrop-blur-sm hover:bg-zinc-800/50 hover:border-zinc-700/50 transition-all duration-300">
+              <div className="flex items-start gap-4">
+                <div className="w-8 h-8 rounded-lg bg-rose-500/15 border border-rose-500/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg className="w-4 h-4 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-semibold text-white mb-2">Welche Formate werden unterstützt?</h3>
+                  <p className="text-zinc-400 text-sm leading-relaxed">
+                    Für Videos: 16:9 (Landscape) und 9:16 (Portrait) in 720p oder 1080p, mit 4, 6 oder 8 Sekunden Dauer. 
+                    Für Bilder: 1:1 (Square), 16:9 und 9:16. Perfekt für alle Social-Media-Plattformen.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* FAQ Item 4 */}
+            <div className="group p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800/50 backdrop-blur-sm hover:bg-zinc-800/50 hover:border-zinc-700/50 transition-all duration-300">
+              <div className="flex items-start gap-4">
+                <div className="w-8 h-8 rounded-lg bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg className="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-semibold text-white mb-2">Ist die Nutzung wirklich kostenlos?</h3>
+                  <p className="text-zinc-400 text-sm leading-relaxed">
+                    Ja! Während der Beta-Phase ist die Nutzung komplett kostenlos. Keine Kreditkarte erforderlich, 
+                    keine versteckten Kosten. Du kannst unbegrenzt Videos und Bilder erstellen.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* FAQ Item 5 */}
+            <div className="group p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800/50 backdrop-blur-sm hover:bg-zinc-800/50 hover:border-zinc-700/50 transition-all duration-300">
+              <div className="flex items-start gap-4">
+                <div className="w-8 h-8 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-semibold text-white mb-2">Werden meine Daten sicher gespeichert?</h3>
+                  <p className="text-zinc-400 text-sm leading-relaxed">
+                    Deine hochgeladenen Bilder werden nur für die Generierung verwendet und nicht dauerhaft gespeichert. 
+                    Generierte Inhalte kannst du sofort herunterladen. Wir respektieren deine Privatsphäre und halten uns 
+                    an die DSGVO-Richtlinien.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* FAQ Item 6 */}
+            <div className="group p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800/50 backdrop-blur-sm hover:bg-zinc-800/50 hover:border-zinc-700/50 transition-all duration-300">
+              <div className="flex items-start gap-4">
+                <div className="w-8 h-8 rounded-lg bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg className="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-semibold text-white mb-2">Kann ich die generierten Inhalte kommerziell nutzen?</h3>
+                  <p className="text-zinc-400 text-sm leading-relaxed">
+                    Ja! Alle generierten Inhalte gehören dir und können uneingeschränkt kommerziell genutzt werden. 
+                    Es gibt keine Wasserzeichen oder Einschränkungen.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Team Section */}
-        <section className="mt-32 sm:mt-40 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-800">
+        <section className="mt-32 sm:mt-40 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-1000">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               <span className="bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
@@ -678,7 +1314,7 @@ export default function LandingPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="mt-32 sm:mt-40 mb-20 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-900">
+        <section className="mt-32 sm:mt-40 mb-20 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-1100">
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-zinc-900/80 to-zinc-900/40 border border-zinc-800/50 backdrop-blur-sm p-10 sm:p-16 text-center">
             {/* Background decoration */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-gradient-to-b from-violet-600/20 to-transparent blur-[100px]" />
@@ -711,8 +1347,8 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="relative z-10 border-t border-zinc-800/50 py-12 mt-32">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            <div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div className="md:col-span-2">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-600 via-violet-600 to-rose-600 flex items-center justify-center">
                   <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -724,31 +1360,36 @@ export default function LandingPage() {
                   adsgen.ai
                 </span>
               </div>
-              <p className="text-sm text-zinc-500">
-                KI-gestützte Werbeerstellung für moderne Unternehmen.
+              <p className="text-sm text-zinc-500 mb-4">
+                KI-gestützte Werbeerstellung für moderne Unternehmen. 
+                Erstelle professionelle Videos und Bilder in Minuten.
               </p>
             </div>
             <div>
               <h4 className="text-sm font-semibold text-white mb-4">Produkt</h4>
               <ul className="space-y-2 text-sm text-zinc-500">
-                <li><a href="/create" className="hover:text-white transition-colors">App starten</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Features</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Preise</a></li>
+                <li><Link href="/create" className="hover:text-white transition-colors">App starten</Link></li>
+                <li><a href="#features" className="hover:text-white transition-colors">Features</a></li>
+                <li><a href="#pricing" className="hover:text-white transition-colors">Preise</a></li>
+                <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-white mb-4">Unternehmen</h4>
+              <h4 className="text-sm font-semibold text-white mb-4">Rechtliches</h4>
               <ul className="space-y-2 text-sm text-zinc-500">
-                <li><a href="#" className="hover:text-white transition-colors">Über uns</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Kontakt</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Datenschutz</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Impressum</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">AGB</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Kontakt</a></li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-zinc-800/50 pt-8 text-center">
-            <p className="text-sm text-zinc-600">
-              © 2025 adsgen.ai • Powered by AI
-            </p>
+          <div className="border-t border-zinc-800/50 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="text-sm text-zinc-600">
+                © 2025 adsgen.ai • Powered by Google AI
+              </p>
+            </div>
           </div>
         </div>
       </footer>

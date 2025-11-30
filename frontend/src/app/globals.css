@@ -137,3 +137,34 @@
 .animate-scroll:hover {
   animation-play-state: paused;
 }
+
+@keyframes scroll-down {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes scroll-up {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-scroll-down {
+  animation: scroll-down 20s linear infinite;
+}
+
+.animate-scroll-up {
+  animation: scroll-up 20s linear infinite;
+}
+
+.animate-scroll-down:hover,
+.animate-scroll-up:hover {
+  animation-play-state: paused;
+}

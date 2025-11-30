@@ -1000,8 +1000,9 @@ Example: 'Product on marble surface with soft natural light, minimalist aestheti
                     <video
                       src={videoUrl}
                       controls
-                      className="w-full aspect-video"
+                      className="w-full aspect-video object-cover"
                       poster={imagePreview || undefined}
+                      style={{ objectFit: 'cover' }}
                     />
                   </div>
                 ) : imageUrl ? (
