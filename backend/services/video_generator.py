@@ -117,7 +117,7 @@ class VideoGenerator:
         image = self._load_image(image_path)
         
         operation = self.client.models.generate_videos(
-            model="veo-3.1-generate-preview",
+            model="veo-3.1-fast-generate-preview",
             prompt=prompt,
             image=image,
             config=types.GenerateVideosConfig(
