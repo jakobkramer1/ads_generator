@@ -357,8 +357,12 @@ export default function LandingPage() {
                   {[
                     { src: "/slideshow_image/restaurant%20refined.png", alt: "Restaurant Werbebild" },
                     { src: "/slideshow_image/sushiai.png", alt: "Sushi Werbebild" },
+                    { src: "/slideshow_image/sagrotanai.png", alt: "Sagrotan Werbebild" },
+                    {src:  "/slideshow_image/headphoneai.png", alt: "Headphone Werbebild" },
                     { src: "/slideshow_image/restaurant%20refined.png", alt: "Restaurant Werbebild" },
                     { src: "/slideshow_image/sushiai.png", alt: "Sushi Werbebild" },
+                    { src: "/slideshow_image/sagrotanai.png", alt: "Sagrotan Werbebild" },
+                    {src:  "/slideshow_image/headphoneai.png", alt: "Headphone Werbebild" },
                   ].map((img, i) => (
                     <div
                       key={`image-1-${i}`}
@@ -378,8 +382,12 @@ export default function LandingPage() {
                   {[
                     { src: "/slideshow_image/restaurant%20refined.png", alt: "Restaurant Werbebild" },
                     { src: "/slideshow_image/sushiai.png", alt: "Sushi Werbebild" },
+                    { src: "/slideshow_image/sagrotanai.png", alt: "Sagrotan Werbebild" },
+                    {src:  "/slideshow_image/headphoneai.png", alt: "Headphone Werbebild" },
                     { src: "/slideshow_image/restaurant%20refined.png", alt: "Restaurant Werbebild" },
                     { src: "/slideshow_image/sushiai.png", alt: "Sushi Werbebild" },
+                    { src: "/slideshow_image/sagrotanai.png", alt: "Sagrotan Werbebild" },
+                    {src:  "/slideshow_image/headphoneai.png", alt: "Headphone Werbebild" },
                   ].map((img, i) => (
                     <div
                       key={`image-2-${i}`}
@@ -411,49 +419,57 @@ export default function LandingPage() {
                 
                 {/* Scrolling videos container */}
                 <div className="flex flex-col animate-scroll-up gap-4 p-4">
-                  {/* First set of videos */}
+                  {/* First set of videos - carefully ordered to avoid repetition */}
                   {[
-                    { src: "/slideshow_video/97d82519-2988-4233-9427-c87f9a2cbb07.mp4" },
-                    { src: "/slideshow_video/01e5f7ec-6fdf-4f9d-af64-bf2eded0ede7_3s.mp4" },
-                    { src: "/slideshow_video/97d82519-2988-4233-9427-c87f9a2cbb07.mp4" },
-                    { src: "/slideshow_video/01e5f7ec-6fdf-4f9d-af64-bf2eded0ede7_3s.mp4" },
+                    { src: "/slideshow_video/97d82519-2988-4233-9427-c87f9a2cbb07.mp4", objectFit: 'cover' as const, aspectRatio: '16:9' as const },
+                    { src: "/slideshow_video/headphone_vid.mp4", objectFit: 'contain' as const, aspectRatio: '9:16' as const },
+                    { src: "/slideshow_video/logo_vid.mp4", objectFit: 'contain' as const, aspectRatio: '9:16' as const },
+                    { src: "/slideshow_video/01e5f7ec-6fdf-4f9d-af64-bf2eded0ede7_3s.mp4", objectFit: 'cover' as const, aspectRatio: '16:9' as const },
+                    { src: "/slideshow_video/headphone_vid.mp4", objectFit: 'contain' as const, aspectRatio: '9:16' as const },
+                    { src: "/slideshow_video/97d82519-2988-4233-9427-c87f9a2cbb07.mp4", objectFit: 'cover' as const, aspectRatio: '16:9' as const },
+                    { src: "/slideshow_video/logo_vid.mp4", objectFit: 'contain' as const, aspectRatio: '9:16' as const },
+                    { src: "/slideshow_video/01e5f7ec-6fdf-4f9d-af64-bf2eded0ede7_3s.mp4", objectFit: 'cover' as const, aspectRatio: '16:9' as const },
                   ].map((video, i) => (
                     <div
                       key={`video-1-${i}`}
-                      className="shrink-0 w-full aspect-video rounded-xl border border-zinc-800/50 overflow-hidden relative bg-black"
+                      className={`shrink-0 w-full ${video.aspectRatio === '9:16' ? 'aspect-[9/16]' : 'aspect-video'} rounded-xl border border-zinc-800/50 overflow-hidden relative bg-black`}
                     >
                       <video
-                        className="w-full h-full object-cover absolute inset-0"
+                        className={`w-full h-full absolute inset-0 ${video.objectFit === 'contain' ? 'object-contain' : 'object-cover'}`}
                         autoPlay
                         loop
                         muted
                         playsInline
-                        style={{ objectFit: 'cover' }}
+                        style={{ objectFit: video.objectFit }}
                       >
                         <source src={video.src} type="video/mp4" />
                       </video>
                     </div>
                   ))}
                   
-                  {/* Duplicate set for seamless loop */}
+                  {/* Duplicate set for seamless loop - starts with different video to avoid repetition */}
                   {[
-                    { src: "/slideshow_video/97d82519-2988-4233-9427-c87f9a2cbb07.mp4" },
-                    { src: "/slideshow_video/01e5f7ec-6fdf-4f9d-af64-bf2eded0ede7_3s.mp4" },
-                    { src: "/slideshow_video/97d82519-2988-4233-9427-c87f9a2cbb07.mp4" },
-                    { src: "/slideshow_video/01e5f7ec-6fdf-4f9d-af64-bf2eded0ede7_3s.mp4" },
+                    { src: "/slideshow_video/headphone_vid.mp4", objectFit: 'contain' as const, aspectRatio: '9:16' as const },
+                    { src: "/slideshow_video/97d82519-2988-4233-9427-c87f9a2cbb07.mp4", objectFit: 'cover' as const, aspectRatio: '16:9' as const },
+                    { src: "/slideshow_video/logo_vid.mp4", objectFit: 'contain' as const, aspectRatio: '9:16' as const },
+                    { src: "/slideshow_video/01e5f7ec-6fdf-4f9d-af64-bf2eded0ede7_3s.mp4", objectFit: 'cover' as const, aspectRatio: '16:9' as const },
+                    { src: "/slideshow_video/headphone_vid.mp4", objectFit: 'contain' as const, aspectRatio: '9:16' as const },
+                    { src: "/slideshow_video/97d82519-2988-4233-9427-c87f9a2cbb07.mp4", objectFit: 'cover' as const, aspectRatio: '16:9' as const },
+                    { src: "/slideshow_video/logo_vid.mp4", objectFit: 'contain' as const, aspectRatio: '9:16' as const },
+                    { src: "/slideshow_video/01e5f7ec-6fdf-4f9d-af64-bf2eded0ede7_3s.mp4", objectFit: 'cover' as const, aspectRatio: '16:9' as const },
                   ].map((video, i) => (
                     <div
                       key={`video-2-${i}`}
-                      className="shrink-0 w-full aspect-video rounded-xl border border-zinc-800/50 overflow-hidden relative bg-black"
+                      className={`shrink-0 w-full ${video.aspectRatio === '9:16' ? 'aspect-[9/16]' : 'aspect-video'} rounded-xl border border-zinc-800/50 overflow-hidden relative bg-black`}
                       aria-hidden="true"
                     >
                       <video
-                        className="w-full h-full object-cover absolute inset-0"
+                        className={`w-full h-full absolute inset-0 ${video.objectFit === 'contain' ? 'object-contain' : 'object-cover'}`}
                         autoPlay
                         loop
                         muted
                         playsInline
-                        style={{ objectFit: 'cover' }}
+                        style={{ objectFit: video.objectFit }}
                       >
                         <source src={video.src} type="video/mp4" />
                       </video>
@@ -466,6 +482,7 @@ export default function LandingPage() {
         </section>
 
         {/* Trust Banner - Unternehmen die uns vertrauen */}
+        {/*
         <section className="mt-24 sm:mt-32 mb-16 sm:mb-24 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-600">
           <div className="text-center mb-8">
             <p className="text-sm text-zinc-500 uppercase tracking-wider mb-2">Vertrauen von führenden Unternehmen</p>
@@ -473,13 +490,10 @@ export default function LandingPage() {
           </div>
           
           <div className="relative overflow-hidden">
-            {/* Gradient overlays for smooth fade effect */}
             <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#08080c] to-transparent z-10 pointer-events-none"></div>
             <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#08080c] to-transparent z-10 pointer-events-none"></div>
             
-            {/* Scrolling logos */}
             <div className="flex animate-scroll gap-12 items-center">
-              {/* First set of logos */}
               <div className="flex gap-12 items-center flex-shrink-0">
                 {[
                   { 
@@ -541,7 +555,6 @@ export default function LandingPage() {
                 ))}
               </div>
               
-              {/* Duplicate set for seamless loop */}
               <div className="flex gap-12 items-center flex-shrink-0" aria-hidden="true">
                 {[
                   { 
@@ -605,6 +618,7 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
+        */}
 
         {/* Features Section */}
         <section id="features" className="mt-32 sm:mt-40 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-500">
@@ -1387,7 +1401,7 @@ export default function LandingPage() {
           <div className="border-t border-zinc-800/50 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-sm text-zinc-600">
-                © 2025 adsgen.ai • Powered by Google AI
+                © 2025 adsgen.ai
               </p>
             </div>
           </div>
