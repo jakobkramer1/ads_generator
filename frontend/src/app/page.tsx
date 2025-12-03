@@ -421,60 +421,70 @@ export default function LandingPage() {
                 <div className="flex flex-col animate-scroll-up gap-4 p-4">
                   {/* First set of videos - carefully ordered to avoid repetition */}
                   {[
-                    { src: "/slideshow_video/97d82519-2988-4233-9427-c87f9a2cbb07.mp4", objectFit: 'cover' as const, aspectRatio: '16:9' as const },
+                    { src: "/slideshow_video/pasta.mp4", objectFit: 'contain' as const, aspectRatio: '16:9' as const },
                     { src: "/slideshow_video/headphone_vid.mp4", objectFit: 'contain' as const, aspectRatio: '9:16' as const },
                     { src: "/slideshow_video/logo_vid.mp4", objectFit: 'contain' as const, aspectRatio: '9:16' as const },
-                    { src: "/slideshow_video/01e5f7ec-6fdf-4f9d-af64-bf2eded0ede7_3s.mp4", objectFit: 'cover' as const, aspectRatio: '16:9' as const },
+                    { src: "/slideshow_video/ferrari.mp4", objectFit: 'contain' as const, aspectRatio: '16:9' as const },
+                    { src: "/slideshow_video/toothpaste.mp4", objectFit: 'contain' as const, aspectRatio: '16:9' as const },
                     { src: "/slideshow_video/headphone_vid.mp4", objectFit: 'contain' as const, aspectRatio: '9:16' as const },
-                    { src: "/slideshow_video/97d82519-2988-4233-9427-c87f9a2cbb07.mp4", objectFit: 'cover' as const, aspectRatio: '16:9' as const },
+                    { src: "/slideshow_video/pasta.mp4", objectFit: 'contain' as const, aspectRatio: '16:9' as const },
                     { src: "/slideshow_video/logo_vid.mp4", objectFit: 'contain' as const, aspectRatio: '9:16' as const },
-                    { src: "/slideshow_video/01e5f7ec-6fdf-4f9d-af64-bf2eded0ede7_3s.mp4", objectFit: 'cover' as const, aspectRatio: '16:9' as const },
-                  ].map((video, i) => (
-                    <div
-                      key={`video-1-${i}`}
-                      className={`shrink-0 w-full ${video.aspectRatio === '9:16' ? 'aspect-[9/16]' : 'aspect-video'} rounded-xl border border-zinc-800/50 overflow-hidden relative bg-black`}
-                    >
-                      <video
-                        className={`w-full h-full absolute inset-0 ${video.objectFit === 'contain' ? 'object-contain' : 'object-cover'}`}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        style={{ objectFit: video.objectFit }}
+                    { src: "/slideshow_video/ferrari.mp4", objectFit: 'contain' as const, aspectRatio: '16:9' as const },
+                    { src: "/slideshow_video/toothpaste.mp4", objectFit: 'contain' as const, aspectRatio: '16:9' as const },
+                  ].map((video, i) => {
+                    const aspectRatio = video.aspectRatio === '9:16' ? '9/16' : '16/9';
+                    return (
+                      <div
+                        key={`video-1-${i}`}
+                        className="shrink-0 w-full rounded-xl border border-zinc-800/50 overflow-hidden relative bg-black"
+                        style={{ aspectRatio }}
                       >
-                        <source src={video.src} type="video/mp4" />
-                      </video>
-                    </div>
-                  ))}
+                        <video
+                          className="w-full h-full absolute inset-0 object-contain"
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                        >
+                          <source src={video.src} type="video/mp4" />
+                        </video>
+                      </div>
+                    );
+                  })}
                   
                   {/* Duplicate set for seamless loop - starts with different video to avoid repetition */}
                   {[
+                    { src: "/slideshow_video/pasta.mp4", objectFit: 'contain' as const, aspectRatio: '16:9' as const },
                     { src: "/slideshow_video/headphone_vid.mp4", objectFit: 'contain' as const, aspectRatio: '9:16' as const },
-                    { src: "/slideshow_video/97d82519-2988-4233-9427-c87f9a2cbb07.mp4", objectFit: 'cover' as const, aspectRatio: '16:9' as const },
                     { src: "/slideshow_video/logo_vid.mp4", objectFit: 'contain' as const, aspectRatio: '9:16' as const },
-                    { src: "/slideshow_video/01e5f7ec-6fdf-4f9d-af64-bf2eded0ede7_3s.mp4", objectFit: 'cover' as const, aspectRatio: '16:9' as const },
+                    { src: "/slideshow_video/ferrari.mp4", objectFit: 'contain' as const, aspectRatio: '16:9' as const },
+                    { src: "/slideshow_video/toothpaste.mp4", objectFit: 'contain' as const, aspectRatio: '16:9' as const },
                     { src: "/slideshow_video/headphone_vid.mp4", objectFit: 'contain' as const, aspectRatio: '9:16' as const },
-                    { src: "/slideshow_video/97d82519-2988-4233-9427-c87f9a2cbb07.mp4", objectFit: 'cover' as const, aspectRatio: '16:9' as const },
+                    { src: "/slideshow_video/pasta.mp4", objectFit: 'contain' as const, aspectRatio: '16:9' as const },
                     { src: "/slideshow_video/logo_vid.mp4", objectFit: 'contain' as const, aspectRatio: '9:16' as const },
-                    { src: "/slideshow_video/01e5f7ec-6fdf-4f9d-af64-bf2eded0ede7_3s.mp4", objectFit: 'cover' as const, aspectRatio: '16:9' as const },
-                  ].map((video, i) => (
-                    <div
-                      key={`video-2-${i}`}
-                      className={`shrink-0 w-full ${video.aspectRatio === '9:16' ? 'aspect-[9/16]' : 'aspect-video'} rounded-xl border border-zinc-800/50 overflow-hidden relative bg-black`}
-                      aria-hidden="true"
-                    >
-                      <video
-                        className={`w-full h-full absolute inset-0 ${video.objectFit === 'contain' ? 'object-contain' : 'object-cover'}`}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        style={{ objectFit: video.objectFit }}
+                    { src: "/slideshow_video/ferrari.mp4", objectFit: 'contain' as const, aspectRatio: '16:9' as const },
+                    { src: "/slideshow_video/toothpaste.mp4", objectFit: 'contain' as const, aspectRatio: '16:9' as const },
+                  ].map((video, i) => {
+                    const aspectRatio = video.aspectRatio === '9:16' ? '9/16' : '16/9';
+                    return (
+                      <div
+                        key={`video-2-${i}`}
+                        className="shrink-0 w-full rounded-xl border border-zinc-800/50 overflow-hidden relative bg-black"
+                        style={{ aspectRatio }}
+                        aria-hidden="true"
                       >
-                        <source src={video.src} type="video/mp4" />
-                      </video>
-                    </div>
-                  ))}
+                        <video
+                          className="w-full h-full absolute inset-0 object-contain"
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                        >
+                          <source src={video.src} type="video/mp4" />
+                        </video>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>
