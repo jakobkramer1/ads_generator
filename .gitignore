@@ -4,20 +4,9 @@
 .env.*.local
 
 # Media files
-*.mp4
-*.avi
-*.mov
-*.mkv
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.webp
-*.webm
+
 
 # Generated directories
-images/
-videos/
 
 # Python
 __pycache__/
